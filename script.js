@@ -1,17 +1,24 @@
 function showPopup() {
     var popup = document.getElementById('popupForm');
     popup.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Mengunci overflow body saat popup ditampilkan
+    document.body.style.overflow = 'hidden'; // Lock body overflow when popup is displayed
 }
 
 function closePopup() {
     var popup = document.getElementById('popupForm');
     popup.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Mengembalikan overflow body ke nilai awal saat popup ditutup
+    document.body.style.overflow = 'auto'; // Restore body overflow when popup is closed
 }
 
- // Function to toggle visibility of the donation/membership form
- function toggleForm() {
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleForm() {
     var form = document.getElementById("donation-membership");
-    form.classList.toggle("show");
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    } else {
+        form.style.display = "block";
+    }
 }
