@@ -4,6 +4,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden; /* Menyembunyikan scroll horizontal */
 }
 
 header {
@@ -135,9 +137,8 @@ section {
     background-color: rgba(24, 89, 44, 0.4); /* Black w/ opacity */
 }
 
-
 /* Button styles */
-button[type="button-formulir"] {
+.button-formulir {
     background-color: #2e7d32; /* Dark green background */
     color: #fff; /* White text color */
     padding: 10px 20px; /* Padding */
@@ -149,13 +150,9 @@ button[type="button-formulir"] {
     margin: 0 auto; /* Center horizontally */
 }
 
-button[type="button-formulir"]:hover {
+.button-formulir:hover {
     background-color: #1e5021; /* Darker green background on hover */
 }
-
-
-
-
 
 /* Popup content */
 .popup-content {
@@ -192,7 +189,7 @@ form label {
     margin: 0.5rem 0;
 }
 
-form input, form textarea {
+form input, form textarea, form select {
     width: 80%;
     padding: 0.5rem;
     margin-bottom: 1rem;
@@ -222,4 +219,68 @@ footer {
 
 footer p {
     margin: 0.5rem 0;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 0.5rem 0;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    nav ul a img {
+        margin: 0;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .popup-content {
+        width: 90%;
+    }
+    /* New styles for sidebar */
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    .sidebar ul {
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar ul li {
+        list-style: none;
+        padding: 8px 8px;
+        text-align: center;
+        border-bottom: 1px solid #bbb;
+    }
+    .sidebar ul li:last-child {
+        border-bottom: none;
+    }
+    .sidebar ul li a {
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+    }
+    .sidebar ul li a:hover {
+        color: #f1f1f1;
+    }
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 }
