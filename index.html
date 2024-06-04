@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumi Hijau</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                <li><a href="#about" onclick="scrollToSection('about')">About</a></li>
+                <a href="#logo"><img src="https://i.ibb.co.com/qmfBhmr/logo.png" alt="logo"></a>
+                <li><a href="#service" onclick="scrollToSection('service')">Service</a></li>
+                <li><a href="#" onclick="showPopup()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <h1>Tanam Harapan Tumbuhkan Kehidupan</h1>
+            <a href="#green-grow" class="btn" onclick="scrollToSection('green-grow')">Explore More</a>
+        </div>
+    </section>
+
+    <section id="Bumi-Hijau">
+        <div class="Rimbun-content">
+            <h1>Bumi Hijau</h1>
+            <p>Membangun kebersamaan dan kesejahteraan bersama merupakan tujuan utama yang dikejar. Melalui kolaborasi yang kuat dan kerjasama yang berkelanjutan, diupayakan lingkungan yang inklusif, mendukung, dan berdaya bagi setiap individu. Nilai-nilai seperti saling menghormati, gotong royong, dan tanggung jawab sosial dipromosikan untuk menciptakan fondasi yang kokoh bagi pertumbuhan individu dan keseluruhan masyarakat. Dengan demikian, akhirnya tercipta hubungan yang berkelanjutan, jaringan sosial diperkuat, dan dampak positif yang signifikan tercipta dalam lingkungan lokal maupun global.</p>
+        </div>
+    </section>
+
+   
+    <button type="button-formulir" onclick="toggleForm()">Buka Formulir Donasi atau Keanggotaan</button>
+    <p></p>
+
+    
+
+    <footer>
+        <p>Bumi Hijau 2024</p>
+    </footer>
+
+    <!-- Popup Form -->
+<div id="popupForm" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="toggleForm()">&times;</span>
+        <h2>Contact Form</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Popup Form -->
+    <div id="popupForm" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Contact Form</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+   
+
+    <script src="script.js"></script>
+</body>
+</html>
