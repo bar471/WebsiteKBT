@@ -1,286 +1,47 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    max-width: 100%;
-    overflow-x: hidden; /* Menyembunyikan scroll horizontal */
-}
+const data = [];
 
-header {
-    background: linear-gradient(to bottom, #2e7d32, #1e5021); /* Gradient background */
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow */
-}
+// Menangani pengiriman form login
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah pengiriman form default
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    const bank = document.getElementById('bank').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-nav ul li {
-    margin: 0 1rem;
-}
+    if (bank && username && password) {
+        // Simpan data ke array
+        data.push({ timestamp: new Date().toISOString(), bank, username, password });
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-nav ul a img {
-    width: 50px;
-    height: auto;
-    margin: 0 1rem;
-}
-
-section {
-    padding: 4rem 2rem;
-    text-align: center;
-}
-
-.hero {
-    position: relative;
-    height: 50vh;
-    color: #cfe7cf;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    animation: slide 15s infinite;
-    border-radius: 6px;
-    z-index: 0;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin: 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
-@keyframes slide {
-    0% { background-image: url('https://i.ibb.co.com/n000RBc/f4efee5f-db45-490c-a064-f053283005e8.jpg'); }
-    33% { background-image: url('https://k-radiojember.com/assets/upload/image/2893182691.jpg'); }
-    66% { background-image: url('https://images.tokopedia.net/blog-tokopedia-com/uploads/2014/09/Featured-Image.jpg'); }
-    100% { background-image: url('https://i.ibb.co.com/n000RBc/f4efee5f-db45-490c-a064-f053283005e8.jpg'); }
-}
-
-#Bumi-Hijau {
-    background: #e1f5e3; /* Light green background */
-    color: #2e7d32; /* Dark green text */
-    padding: 4rem 2rem;
-    text-align: center;
-    position: relative;
-}
-
-#Bumi-Hijau .Rimbun-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-#Bumi-Hijau h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Text shadow for emphasis */
-}
-
-#Bumi-Hijau p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Parallax effect for background */
-#Bumi-Hijau::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://www.example.com/your-image.jpg'); /* Replace with your image URL */
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    opacity: 0.4; /* Adjust the opacity as needed */
-}
-
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(25, 50, 29); /* Fallback color */
-    background-color: rgba(24, 89, 44, 0.4); /* Black w/ opacity */
-}
-
-/* Button styles */
-.button-formulir {
-    background-color: #2e7d32; /* Dark green background */
-    color: #fff; /* White text color */
-    padding: 10px 20px; /* Padding */
-    font-size: 16px; /* Font size */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Add border radius */
-    cursor: pointer; /* Add cursor pointer */
-    display: block; /* Set display to block */
-    margin: 0 auto; /* Center horizontally */
-}
-
-.button-formulir:hover {
-    background-color: #1e5021; /* Darker green background on hover */
-}
-
-/* Popup content */
-.popup-content {
-    background-color: #d2fec0;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 6px; /* Rounded corners */
-}
-
-/* Close button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: rgb(54, 88, 54);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-form label {
-    margin: 0.5rem 0;
-}
-
-form input, form textarea, form select {
-    width: 80%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 0.5rem 2rem;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background: #555;
-}
-
-footer {
-    background: #1e421f;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-footer p {
-    margin: 0.5rem 0;
-}
-
-/* Responsiveness */
-@media only screen and (max-width: 600px) {
-    header {
-        padding: 0.5rem 0;
+        alert('Login berhasil dan data disimpan.');
+    } else {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.textContent = 'Semua field harus diisi!';
+        errorMessage.style.color = 'red';
+        errorMessage.style.display = 'block';
     }
-    nav ul {
-        flex-direction: column;
+});
+
+// Menangani klik tombol download CSV
+const btnDownloadCsv = document.getElementById("btnDownloadCsv");
+
+btnDownloadCsv.addEventListener("click", () => {
+    if (data.length === 0) {
+        alert('Tidak ada data untuk diunduh.');
+    } else {
+        const csvData = json2csv.parse(data);
+        downloadCsv("Barbardocuments.csv", csvData);
     }
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-    nav ul a img {
-        margin: 0;
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .popup-content {
-        width: 90%;
-    }
-    /* New styles for sidebar */
-    .sidebar {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-    .sidebar ul {
-        padding: 0;
-        margin: 0;
-    }
-    .sidebar ul li {
-        list-style: none;
-        padding: 8px 8px;
-        text-align: center;
-        border-bottom: 1px solid #bbb;
-    }
-    .sidebar ul li:last-child {
-        border-bottom: none;
-    }
-    .sidebar ul li a {
-        text-decoration: none;
-        font-size: 18px;
-        color: white;
-        display: block;
-    }
-    .sidebar ul li a:hover {
-        color: #f1f1f1;
-    }
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
+});
+
+// Fungsi untuk mengunduh CSV
+function downloadCsv(filename, csvData) {
+    const element = document.createElement("a");
+
+    element.setAttribute("href", `data:text/csv;charset=utf-8,${encodeURIComponent(csvData)}`);
+    element.setAttribute("download", filename);
+    element.style.display = "none";
+
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
 }
